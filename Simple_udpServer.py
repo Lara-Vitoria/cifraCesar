@@ -7,6 +7,11 @@ serverSocket.bind(("",serverPort))
 print ("UDP server\n")
 
 while 1:
+    descriptografa = CriptografiaCesar()
+
     message, clientAddress = serverSocket.recvfrom(2048)
-    text = str(message,"utf-8")
+
+    mensagemCript = descriptografa.descriptografa(message)
+
+    text = str(mensagemCript,"utf-8")
     print ("Received from Client: ", text)
