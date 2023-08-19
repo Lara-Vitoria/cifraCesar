@@ -1,8 +1,9 @@
 from socket import *
+from CriptografiaCesar import CriptografiaCesar
 
-serverPort = 12500
+serverPort = 8888
 serverSocket = socket(AF_INET, SOCK_DGRAM)
-serverSocket.bind(("",serverPort))
+serverSocket.bind(("", serverPort))
 
 print ("UDP server\n")
 
@@ -13,5 +14,5 @@ while 1:
 
     mensagemCript = descriptografa.descriptografa(message)
 
-    text = str(mensagemCript,"utf-8")
-    print ("Received from Client: ", text)
+    print ("Received from Client: ", mensagemCript)
+
