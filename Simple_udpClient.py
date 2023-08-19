@@ -2,7 +2,7 @@ from socket import *
 from CriptografiaCesar import CriptografiaCesar
 
 serverName = ""
-serverPort = 12500
+serverPort = 8888
 clientSocket = socket(AF_INET, SOCK_DGRAM)
 
 print("UDP Client\n")
@@ -14,6 +14,7 @@ while 1:
     mensagemCript = criptografia.criptografa(message)
 
     if message == "exit":
+            print(type(mensagemCript))
             break
     clientSocket.sendto(bytes(mensagemCript,"utf-8"), (serverName, serverPort))
 
